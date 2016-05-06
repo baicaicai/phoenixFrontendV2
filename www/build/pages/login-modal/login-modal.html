@@ -1,0 +1,64 @@
+<!--
+  Generated template for the LoginModalPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar>
+  <ion-title>手机登录</ion-title>
+  <ion-buttons>
+  <button (click)="dismiss()">
+    <span primary showWhen="ios">Cancel</span>
+    <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+  </button>
+</ion-buttons>
+</ion-navbar>
+
+<ion-content padding class="login-modal">
+<!--  <ion-list>
+  
+      
+    <ion-item>
+      <ion-label>{{Message}}</ion-label>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>手机号</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>验证码</ion-label>
+      <ion-input type="password"></ion-input>
+      <button outline item-right small class="verifyButton" (click)="getVerifyCode()">
+        <ion-icon name="star"></ion-icon>
+       获取验证码
+      </button>
+    </ion-item>
+  
+  
+    <button primary block (click)="signUpOrlogInWithMobilePhone()">
+       登录
+    </button>
+  
+  </ion-list>-->
+  
+<form [ngFormModel]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+
+  <ion-item>
+    <ion-label for="mobileNumber"> mobileNumber</ion-label>
+    <ion-input type="text" id="mobileNumber"  [ngFormControl]="mobileNumber"></ion-input>
+    <div *ngIf="mobileNumber.hasError('invalidMobileNumber')">
+      The Mobile Number is invalid
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <ion-label for="password">Password</ion-label>
+    <ion-input type="password" id="password"  [ngFormControl]="password"></ion-input>
+  </ion-item>
+    <br/><br/> 
+    <button type="submit" block>Submit</button>
+</form>
+  
+</ion-content>
